@@ -13,3 +13,12 @@ void setup() {
   getNum();  // Fill the board with random pairs of numbers.
   display();  // Display the grid initially.
 }
+
+void draw() {
+  display();
+  
+  if (checkingForMatch && millis() > revealTime + 1000) {
+    checkMatch();
+    checkingForMatch = false;
+  }
+}
