@@ -8,3 +8,8 @@ boolean waitingForSecondCard = false;
 boolean checkingForMatch = false;
 int revealTime = 0;
 
+void setup() {
+  size(800, 800); // Set up a window of 800x800 pixels.
+  getNum();  // Fill the board with random pairs of numbers.
+  display();  // Display the grid initially.
+}
