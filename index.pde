@@ -80,3 +80,28 @@ void getNum() {
     }
   }
 }
+
+void display() {
+  for (int i = 0; i < grid; i++) {
+    for (int j = 0; j < grid; j++) {
+      int x = i * 200;
+      int y = j * 200;
+      
+      if (matched[i][j]) {
+        fill(0, 255, 0);
+      } else if (revealed[i][j]) {
+        fill(255);
+      } else {
+        fill(100);
+      }
+      rect(x, y, 200, 200);
+      
+      if (revealed[i][j]) {
+        fill(0);
+        textSize(32);
+        textAlign(CENTER, CENTER);
+        text(board[i][j], x + 100, y + 100);
+      }
+    }
+  }
+}
