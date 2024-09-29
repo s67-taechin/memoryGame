@@ -22,3 +22,27 @@ void draw() {
     checkingForMatch = false;
   }
 }
+
+void mousePressed() {
+  int i = mouseX / 200;
+  int j = mouseY / 200;
+  
+  if (i >= 0 && i < grid && j >= 0 && j < grid) {
+    if (!waitingForSecondCard) {
+      if (!revealed[i][j] && !matched[i][j]) {
+        firstCardX = i;
+        firstCardY = j;
+        revealed[i][j] = true;
+        waitingForSecondCard = true;
+      }
+    } else if (!checkingForMatch) {
+      if (!revealed[i][j] && !matched[i][j]) {
+        secondCardX = i;
+        secondCardY = j;
+        revealed[i][j] = true;
+        revealTime = millis();
+        checkingForMatch = true;
+      }
+    }
+  }
+}
