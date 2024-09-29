@@ -58,3 +58,25 @@ void checkMatch() {
   waitingForSecondCard = false;
 }
 
+void getNum() {
+  int[] numbers = new int[grid * grid];
+  int index = 0;
+  for (int n = 1; n <= (grid * grid) / 2; n++) {
+    numbers[index++] = n;
+    numbers[index++] = n;
+  }
+  
+  for (int i = numbers.length - 1; i > 0; i--) {
+    int j = int(random(i + 1));
+    int temp = numbers[i];
+    numbers[i] = numbers[j];
+    numbers[j] = temp;
+  }
+  
+  index = 0;
+  for (int i = 0; i < grid; i++) {
+    for (int j = 0; j < grid; j++) {
+      board[i][j] = numbers[index++];
+    }
+  }
+}
