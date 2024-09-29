@@ -46,3 +46,15 @@ void mousePressed() {
     }
   }
 }
+
+void checkMatch() {
+  if (board[firstCardX][firstCardY] == board[secondCardX][secondCardY]) {
+    matched[firstCardX][firstCardY] = true;
+    matched[secondCardX][secondCardY] = true;
+  } else {
+    revealed[firstCardX][firstCardY] = false;
+    revealed[secondCardX][secondCardY] = false;
+  }
+  waitingForSecondCard = false;
+}
+
